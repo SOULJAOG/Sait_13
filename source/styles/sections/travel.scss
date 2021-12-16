@@ -1,0 +1,22 @@
+.travel {
+  padding-top: 145px;
+  padding-bottom: 50px;
+}
+@media (max-width: 1130px) {
+  .travel {
+    padding-top: 70px;
+    padding-bottom: 50px;
+  }
+}
+
+.travel .package__price-text {
+  font-size: 36px;
+}
+
+.travel .package__price-text span {
+  font-size: 22px;
+}
+
+.travel .section__text {
+  margin-bottom: 30px;
+}

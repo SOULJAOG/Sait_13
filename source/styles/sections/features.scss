@@ -1,0 +1,128 @@
+.section__features {
+  background: #1a1919 url(../images/features/bg.png) center no-repeat;
+  background-size: cover;
+  padding-top: 90px;
+  color: #fff;
+}
+
+.section__features .section__title {
+  color: #fff;
+}
+
+.section__features .section__text {
+  color: #fff;
+}
+
+.features__inner {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.features__col {
+  flex: 0 1 50%;
+  padding: 150px 0;
+}
+
+.features__col--left {
+  padding-right: 120px;
+}
+
+.features__col--right {
+  padding-left: 120px;
+}
+
+.features__moto {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+@media (max-width: 1130px) {
+  .features__moto {
+    display: none;
+  }
+  .features__col--left {
+    padding-left: 0;
+    marker-left: 0;
+    justify-content: left;
+    left: 0;
+    z-index: 1;
+  }
+  .features__col--right {
+    padding-left: 0;
+  }
+  .features__col {
+    padding: 120px 15px;
+  }
+}
+
+.features__moto img {
+  display: block;
+  max-height: 100%;
+  z-index: 3;
+}
+
+.features__row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 70px;
+}
+
+.features__item {
+  font-family: 'Bebas Neue', cursive;
+  padding: 30px 50px;
+  text-align: center;
+  line-height: 180%;
+}
+
+.features__num {
+  font-size: 55px;
+}
+
+.features__num span {
+  font-size: 30px;
+  text-transform: uppercase;
+}
+
+.features__word {
+  font-size: 29px;
+  text-transform: uppercase;
+}
+
+.features__item--big {
+  transform: scale(1.5);
+  line-height: 200%;
+}
+
+.features__text {
+  text-align: center;
+}
+
+@media (max-width: 992.98px){
+  .features__col {
+    flex: 0 1 100%;
+    padding: 35px 0;
+  }
+}
+
+@media (max-width: 479.98px){
+  .features__row {
+    display: block;
+    margin-bottom: 10px;
+  }
+}
+.redblock {
+  width: 1000%;
+  height: 95%;
+  background:rgba(205,10,45,0.6);
+  display: block;
+  max-height: 1000%;
+  z-index: 2;
+  flex-wrap: wrap;
+  position: absolute;
+  top: 5%;
+  left: -950%;
+}

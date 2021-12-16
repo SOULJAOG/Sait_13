@@ -1,9 +1,9 @@
 const gulp = require('gulp');
 const browserSync = require('browser-sync').create();
 const pug = require('gulp-pug');
-const sass = require('gulp-sass')(require('sass'));
-const spritesmith = require('spritesmith');
-const {template} = require("browser-sync/dist/config");
+var sass = require('gulp-sass')(require('sass'));
+const Spritesmith = require('spritesmith');
+const rimraf = require("browser-sync/dist/config");
 const rename = require("gulp-rename");
 
 /* Serer */
@@ -18,17 +18,6 @@ gulp.task('server', function() {
     gulp.watch('build/**/*').on('change', browserSync.reload);
 });
 
-/* Pug compile */
-exports.views = () => {
-    return src('./src/*.pug')
-        .pipe(
-            pug({
-                // Your options in here.
-            })
-        )
-        .pipe(dest('./dist'));
-};
-
 /* Pug compile old */
 gulp.task('templates:compile', function buildHTML() {
     return gulp.src('source/template/index.pug')
@@ -42,19 +31,20 @@ gulp.task('templates:compile', function buildHTML() {
 gulp.task('styles:compile', function () {
     return gulp.src('source/styles/main.scss')
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-        .pipe(rename(main.min.css))
-        .pipe(gulp.dest('.build/css'));
+        .pipe(rename('main.min.css'))
+        .pipe(gulp.dest('build'));
 });
 
-/* Generate our spritesheet */
+/* Generate our spritesmith */
 gulp.task('sprite', function (cb) {
-    const spriteData = gulp.src('').pipe(spritesmith({
+    const spriteData = gulp.src('source/images/icons/*.*');
+    /*spriteData.pipe(Spritesmith({
         imgName: 'sprite.png',
-        imgPath: '../images/sprite.png',
-        cssName: 'sprite.scss'
-    }))
-    spriteData.img.pipe(gulp.dest('source/images/'));
-    spriteData.css.pipe(gulp.dest('source/styles/global/'));
+        //imgPath: '../images/sprite.png',
+        cssName: 'sprite.css',
+    }));
+    spriteData.img.pipe(gulp.dest('build/images/'));
+    spriteData.scss.pipe(gulp.dest('source/styles/global/'));*/
     cb();
 });
 
@@ -63,23 +53,23 @@ gulp.task('clean', function del(cb) {
 });
 
 gulp.task('copy:fonts', function () {
-    return gulp.src('./source/fonts/**/*.*')
+    return gulp.src('source/fonts/*')
         .pipe(gulp.src('build/fonts'))
 });
 
 gulp.task('copy:images', function () {
-    return gulp.src('./source/images/**/*.*')
+    return gulp.src('source/images/*')
         .pipe(gulp.src('build/images'))
 });
 
 gulp.task('copy', gulp.parallel('copy:fonts','copy:images'));
 
-gulp.task('witch', function () {
+gulp.task('watch', function () {
     gulp.watch('source/template/**/*.png', gulp.series('templates:compile'));
     gulp.watch('source/styles/**/*.scss', gulp.series('styles:compile'));
 });
 
-gulp.task('gulp', gulp.series( 'clean',
+gulp.task('default', gulp.series( //'clean',
     gulp.parallel('templates:compile', 'styles:compile', 'sprite', 'copy'),
     gulp.parallel('watch', 'server')
 ));

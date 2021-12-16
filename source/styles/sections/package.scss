@@ -1,0 +1,110 @@
+.package {
+  background: linear-gradient(to bottom, #fff, #ededed);
+  margin-bottom: 60px;
+}
+
+.package__inner {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 -20px;
+}
+
+.package__item {
+  flex: 0 1 33.333%;
+  padding: 0 20px;
+  padding-bottom: 20px;
+}
+@media (max-width: 1230px) {
+  .package__inner {
+    margin: 0;
+  }
+  .package__item {
+    flex: 0 1 50%;
+  }
+}
+@media (max-width: 650px) {
+  .package__item {
+    flex: 0 1 100%;
+  }
+}
+
+.package__header {
+  position: relative;
+  margin-bottom: 45px;
+}
+
+.package__img {
+  position: relative;
+  padding-bottom: 96.5%;
+}
+
+.package__img img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.package__price {
+  height: 180px;
+  width: 180px;
+  border: 90px solid transparent;
+  border-bottom: 90px solid #cd0a2d;
+  border-left: 90px solid #cd0a2d;
+  position: absolute;
+  left: -20px;
+  bottom: -20px;
+}
+.package__price-text--m{
+  font-size: 56px;
+}
+
+.package__price-text {
+  position: absolute;
+  left: -60px;
+  bottom: -60px;
+  white-space: nowrap;
+  color: #fff;
+  font-size: 40px;
+  line-height: 50%;
+  font-family: 'Bebas Neue', cursive;
+}
+
+.package__price-text span {
+  font-size: 20px;
+}
+
+.package__price-text1 span {
+  font-size: 56px;
+}
+
+.package__title {
+  font-size: 26px;
+  font-family: "HelveticaLTStd";
+  color: #000;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.package__text {
+  margin-bottom: 20px;
+}
+
+.package__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #fff;
+  background: #cd0a2d;
+  height: 40px;
+  width: 112px;
+  border-radius: 20px;
+  &:hover {
+    transform: skew(-10deg);
+  }
+}

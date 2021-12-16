@@ -1,0 +1,163 @@
+.about {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+}
+
+.about__moto {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.about__col {
+  flex: 0 1 50%;
+  padding: 60px 0;
+}
+
+.about__col--red {
+  background: #cd0a2d;
+  margin-top: 70px;
+  color: #fff;
+}
+
+.about__col--white {
+  background: #fff;
+  margin-top: 133px;
+}
+
+.about__inner--red {
+  width: 100%;
+  max-width: 600px;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 150px;
+}
+
+.about__inner--white {
+  width: 100%;
+  max-width: 600px;
+  margin-right: auto;
+  padding-right: 15px;
+  padding-left: 200px;
+}
+@media (max-width: 1100px) {
+  .about {
+    align-items: stretch;
+  }
+  .about__moto {
+    display: none;
+  }
+  .about__col--red {
+    margin-top: 0;
+  }
+  .about__col--white {
+    margin-top: 0;
+  }
+  .about__inner--red, .about__inner--white {
+    padding: 0 15px;
+  }
+}
+@media (max-width: 900px){
+  .about {
+    display: block;
+  }
+  .about__inner--red, .about__inner--white {
+    max-width: none;
+  }
+}
+
+.about__title {
+  font-family: 'Bebas Neue', cursive;
+  font-size: calc(35px + 33 * ((100vw - 320px) / (1700 - 320)));
+  text-transform: uppercase;
+  margin-bottom: 35px;
+}
+
+.about__item {
+  margin-bottom: 40px;
+}
+
+.about__text{
+  color: #e4959d;
+}
+
+.about__item:last-child {
+  margin-bottom: 0;
+}
+
+.about__subtitle {
+  font-size: 25px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.about__team {
+  display: flex;
+  margin-bottom: 30px;
+}
+.about__team:last-child {
+  margin-bottom: 0;
+}
+@media (max-width: 900px) {
+  .about__team {
+    justify-content: center;
+  }
+}
+
+.about__team:nth-child(even) .about__photo {
+  order: 2;
+  margin-right: 0;
+  margin-left: 25px;
+}
+
+.about__team:nth-child(even) .about__info {
+  order: 1;
+}
+
+.about__photo {
+  margin-right: 25px;
+}
+
+.about__header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.about__name {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 47px;
+  text-transform: uppercase;
+  color: #5e5e5e;
+  margin-right: 10px;
+  white-space: nowrap;
+}
+
+.about__prof {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 25px;
+  color: #979797;
+  text-transform: uppercase;
+}
+
+.about__text--black {
+  color: #7e7e7e;
+}
+@media (max-width: 450px){
+  .about__team {
+    display: block;
+    text-align: center;
+  }
+  .about__photo {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+  .about__team:nth-child(even) .about__photo {
+    margin-left: 0;
+  }
+  .about__header {
+    justify-content: center;
+  }
+}
